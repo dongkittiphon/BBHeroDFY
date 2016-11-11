@@ -59,7 +59,7 @@ public class Panel extends JPanel implements Runnable {
 
 
             try {
-               Thread.sleep(10);
+               Thread.sleep(30);
             }catch (Exception e){
             }
         }
