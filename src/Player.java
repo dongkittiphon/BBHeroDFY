@@ -10,6 +10,8 @@ import java.awt.event.KeyEvent;
 public class Player {
     private int x;
     private int y;
+    private boolean up;
+    public double counter;
 
     private Dimension size = new Dimension(100,100);
 
@@ -24,7 +26,7 @@ public class Player {
         setUpHero();
     }
    public void setUpHero(){
-       hero = new ImageIcon("file/b1.png").getImage();
+       hero = new ImageIcon("file/hero_b7.gif").getImage();
    }
 
     public void update(){
@@ -42,6 +44,14 @@ public class Player {
         }
         if(y > 480){
             y = 0;
+        }
+        if (up == true){
+            counter += 0.05;
+            y = y + (int) ((Math.sin(counter) + Math.cos(counter))* 5);
+            if(counter >= 2){
+                counter = 4;
+
+            }
         }
 
     }
@@ -75,7 +85,7 @@ public class Player {
             speedx = 0;
         }
         if(key == KeyEvent.VK_UP){
-
+            up=true;
         }
         if(key == KeyEvent.VK_DOWN){
 
